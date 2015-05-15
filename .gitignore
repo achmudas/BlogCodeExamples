@@ -35,7 +35,6 @@ hs_err_pid*
 # Gradle:
  .idea/gradle.xml
  .idea/libraries
- *.gradle/*
  *.build/*
 # Mongo Explorer plugin:
 # .idea/mongoSettings.xml
@@ -59,3 +58,13 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
+
+
+*/.classpath/*
+*/.gradle/*
+*/.project
+*/.settings/*
+*/.classpath
+*/bin/*
+*/build/*
+

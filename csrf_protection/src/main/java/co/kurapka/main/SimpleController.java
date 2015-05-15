@@ -1,14 +1,15 @@
 package co.kurapka.main;
 
 
+import java.util.logging.Logger;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import java.util.logging.Logger;
 
 /**
  * Created by achmudas on 17/04/15.
@@ -18,14 +19,16 @@ public class SimpleController {
 
     private Logger log = Logger.getLogger(SimpleController.class.getName());
 
-    @RequestMapping("/forms/without_csrf")
-    public String formWithoutCsrf() {
-        return "form_without_csrf";
+    @RequestMapping(value="/forms/without_csrf", method=RequestMethod.GET)
+    public String formWithoutCsrf(Model model) {
+        model.addAttribute("payment", new Payment());
+    	return "form_without_csrf";
     }
 
-    @RequestMapping("/forms/with_csrf")
-    public String formWithCsrf() {
-        return "form_with_csrf";
+    @RequestMapping(value="/forms/with_csrf", method=RequestMethod.GET)
+    public String formWithCsrf(Model model) {
+    	model.addAttribute("payment", new Payment());
+    	return "form_with_csrf";
     }
 
     @RequestMapping(value="/withoutcsrf", method=RequestMethod.POST)
