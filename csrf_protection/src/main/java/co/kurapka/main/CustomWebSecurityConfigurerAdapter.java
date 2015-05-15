@@ -25,6 +25,6 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     public void configure(WebSecurity web) throws Exception {
         web
            .ignoring()
-           .antMatchers("/resources/**", "/forms/without_csfr", "/withoutcsrf");
+           .antMatchers("/resources/**", "/forms/without_csrf", "/withoutcsrf");
     }
 }
