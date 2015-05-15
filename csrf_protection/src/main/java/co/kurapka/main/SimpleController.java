@@ -33,22 +33,24 @@ public class SimpleController {
 
     @RequestMapping(value="/withoutcsrf", method=RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
-    public String withoutCsrf(@ModelAttribute Payment payment) {
+    public String withoutCsrf(@ModelAttribute Payment payment, Model model) {
         log.info("Successful call");
         log.info("Card number: " + payment.getCardNumber());
         log.info("Bank account to transfer: " + payment.getBankAccountToTransfer());
         log.info("Amount to transfer: " + payment.getAmountOfMoney());
-        return "form_without_csrf";
+        model.addAttribute(payment);
+        return "result";
     }
 
     @RequestMapping(value="/withcsrf", method=RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
-    public String withCsrf(@ModelAttribute Payment payment) {
+    public String withCsrf(@ModelAttribute Payment payment, Model model) {
         log.info("Successful call");
         log.info("Card number: " + payment.getCardNumber());
         log.info("Bank account to transfer: " + payment.getBankAccountToTransfer());
         log.info("Amount to transfer: " + payment.getAmountOfMoney());
-        return "form_with_csrf";
+        model.addAttribute(payment);
+        return "result";
     }
 
 }
