@@ -15,11 +15,16 @@ public class LotteryController {
 
     private Logger log = Logger.getLogger(LotteryController.class.getName());
 
-    @RequestMapping(value="/lotteryPage", method= RequestMethod.GET)
+    @RequestMapping(value="/lotteryPageCsrf", method= RequestMethod.GET)
     public String loadLotteryPage(Model model) {
         model.addAttribute("payment", new Payment());
-        log.info("loading lottery web page");
-        return "lottery_page";
+        return "lottery_page_with_csrf";
+    }
+
+    @RequestMapping(value="/lotteryPageNoCsrf", method= RequestMethod.GET)
+    public String loadLotteryPageNoCsrf(Model model) {
+        model.addAttribute("payment", new Payment());
+        return "lottery_page_without_csrf";
     }
 
 }
