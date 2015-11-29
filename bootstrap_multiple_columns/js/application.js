@@ -1,7 +1,7 @@
  var readItApp = angular.module('columnsDemo', []);
 
- readItApp.controller('ColumnsCtrl', function($rootScope){ // TODO change later to the scope and store value from backend
-    $rootScope.persons = [
+ readItApp.controller('ColumnsCtrl', function($scope){
+    $scope.persons = [
         {'name': 'John',
             'age': '35'},
         {'name': 'Peter',
