@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Columns Demo-</title>
+    <meta http-equiv="X-UA-Compatible" content="ID=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="js/application.js"></script>
+    <style type="text/css">
+        .btn-info {
+            margin-top: 20px;
+        }
+        .btn-success {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body ng-app="columnsDemo">
+
+<div ng-controller="ColumnsCtrl" class="container">
+    <div class="row" ng-repeat="person in persons" ng-if="$index % 2 == 0">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+            <button class="btn btn-info btn-lg btn-block">{{persons[$index].name}} <span class="badge">{{persons[$index].age}}</span>
+            </button>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+            <button class="btn btn-success btn-lg btn-block" ng-if="persons[$index + 1].name != null">{{persons[$index +
+                1].name}} <span class="badge">{{persons[$index + 1].age}}</span></button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
