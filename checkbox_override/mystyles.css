@@ -1,0 +1,54 @@
+body {
+  font: 1em sans-serif;
+}
+
+form {
+  display: inline-block;
+
+  padding: 50px 0 0 50px;
+  margin : 0;
+}
+
+label {
+  cursor : pointer;
+}
+
+p {
+  margin : 0;
+}
+
+p+p {
+  margin : .5em 0 0;
+}
+
+:root #overridenCheckbox {
+  /* original check box are push outside the viexport */
+  position: relative;
+  /*left: -1000em;*/
+  display:none;
+}
+
+:root #overridenCheckbox + label:before {
+  content: "";
+  display: inline-block;
+  width  : 16px;
+  height : 16px;
+  margin : 0 .5em 0 0;
+  background-color: orange;
+  border: 2px solid #BF6206;
+  /*background: url("https://developer.mozilla.org/files/4173/checkbox-sprite.png") no-repeat 0 0;*/
+
+/* The following is used to adjust the position of 
+   the check boxes on the text baseline */
+
+  vertical-align: bottom;
+  position: relative;
+  bottom: 2px;
+}
+
+:root #overridenCheckbox:checked + label:before {
+  background-position: 0 -16px;
+  content: '✔';
+}
+
+

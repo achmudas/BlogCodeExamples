@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkbox override</title>
+    <link rel="stylesheet" type="text/css" href="mystyles.css">
+</head>
+<body>
+	<form>
+	    <p>
+	      <input type="checkbox" id="defaultCheckbox" name="defaultCheckbox" value="default">
+	      <label for="defaultCheckbox">Non customized checkbox</label>
+	    </p>
+
+	     <p>
+	      <input type="checkbox" id="overridenCheckbox" name="overridenCheckbox" value="overriden">
+	      <label for="overridenCheckbox">Customized checkbox</label>
+	    </p>
+	</form>
+	<script type="text/javascript">
+		document.getElementById("overridenCheckbox").onclick = function() {
+			alert("Clicked");
+		}
+	</script>
+</body>
